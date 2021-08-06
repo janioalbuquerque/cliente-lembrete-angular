@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  lembretesApiUrl: 'https://devreminder.herokuapp.com'
+  lembretesApiUrl: "https://devreminder.herokuapp.com"
 };
 
 /*

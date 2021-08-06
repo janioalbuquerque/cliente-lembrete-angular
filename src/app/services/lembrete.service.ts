@@ -12,7 +12,7 @@ export class LembreteService {
 
   constructor(private http: HttpClient) { }
 
-  getListaLembrete(): Observable<Lembrete[]> {
+   getListaLembrete(): Observable<Lembrete[]> {
     const url = `${environment.lembretesApiUrl}/lembrete`;
     return this.http.get<Lembrete[]>(url);
   }
@@ -35,7 +35,7 @@ export class LembreteService {
   deletaLembrete(id: number): Observable<Lembrete[]> {
     const url = `${environment.lembretesApiUrl}/lembrete/${id}`;
     return this.http.delete<Lembrete[]>(url);
-  }
-
+  } 
+ 
 
 }
