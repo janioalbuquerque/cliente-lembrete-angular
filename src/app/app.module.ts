@@ -4,16 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ErrorMsgComponent } from './compartilhado/erro-msg/erro-msg.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorMsgComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, ErrorMsgComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
