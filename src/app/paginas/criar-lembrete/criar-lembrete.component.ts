@@ -1,8 +1,7 @@
-import { Component, ViewChild  } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { ErrorMsgComponent } from 'src/app/compartilhado/erro-msg/erro-msg.component';
+import { Component, ViewChild } from '@angular/core';
+import { ErrorMsgComponent } from '../../compartilhado/error-msg/error-msg.component';
 import { LembreteService } from 'src/app/services/lembrete.service';
+import { Router } from '@angular/router';
 import { Lembrete } from 'src/app/interfaces/lembrete';
 
 @Component({
@@ -11,8 +10,7 @@ import { Lembrete } from 'src/app/interfaces/lembrete';
   styleUrls: ['./criar-lembrete.component.css']
 })
 export class CriarLembreteComponent {
-  @ViewChild(ErrorMsgComponent)
-  errorMsgComponent!: ErrorMsgComponent;
+  @ViewChild(ErrorMsgComponent) errorMsgComponent: ErrorMsgComponent;
 
   constructor(private lembreteService: LembreteService, private router: Router) { }
 
@@ -20,10 +18,7 @@ export class CriarLembreteComponent {
     this.lembreteService.addLembrete(lembrete)
       .subscribe(
         () => { this.router.navigateByUrl('/'); },
-        () => { this.errorMsgComponent.setError('Falha ao adicionar lembrete.')}
-      )
+        () => { this.errorMsgComponent.setError('Falha ao adicionar lembrete.'); });
   }
-
-
 
 }

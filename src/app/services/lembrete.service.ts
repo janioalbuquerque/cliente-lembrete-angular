@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Lembrete } from '../interfaces/lembrete';
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,30 +11,29 @@ export class LembreteService {
 
   constructor(private http: HttpClient) { }
 
-   getListaLembrete(): Observable<Lembrete[]> {
+  getListaLembretes(): Observable<Lembrete[]> {
     const url = `${environment.lembretesApiUrl}/lembretes`;
     return this.http.get<Lembrete[]>(url);
   }
 
-  getLembrete(id: number): Observable<Lembrete[]> {
+  getLembrete(id: number): Observable<Lembrete> {
     const url = `${environment.lembretesApiUrl}/lembretes/${id}`;
-    return this.http.get<Lembrete[]>(url);
+    return this.http.get<Lembrete>(url);
   }
 
-  addLembrete(lembrete: Lembrete): Observable<Lembrete[]> {
+  addLembrete(lembrete: Lembrete): Observable<Lembrete> {
     const url = `${environment.lembretesApiUrl}/lembretes/`;
-    return this.http.post<Lembrete[]>(url, lembrete);
+    return this.http.post<Lembrete>(url, lembrete);
   }
 
-  atualizaLembrete(lembrete: Lembrete): Observable<Lembrete[]> {
+  atualizaLembrete(lembrete: Lembrete): Observable<Lembrete> {
     const url = `${environment.lembretesApiUrl}/lembretes/${lembrete.id}`;
-    return this.http.put<Lembrete[]>(url, lembrete);
+    return this.http.put<Lembrete>(url, lembrete);
   }
 
-  deletaLembrete(id: number): Observable<Lembrete[]> {
+  deletaLembrete(id: number): Observable<Lembrete> {
     const url = `${environment.lembretesApiUrl}/lembretes/${id}`;
-    return this.http.delete<Lembrete[]>(url);
-  } 
- 
+    return this.http.delete<Lembrete>(url);
+  }
 
 }

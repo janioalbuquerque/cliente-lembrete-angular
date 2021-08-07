@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListaLembreteComponent } from './lista-lembrete.component';
+import { EditarLembreteComponent } from './editar-lembrete.component';
 
-describe('ListaLembreteComponent', () => {
-  let component: ListaLembreteComponent;
-  let fixture: ComponentFixture<ListaLembreteComponent>;
+describe('EditarLembreteComponent', () => {
+  let component: EditarLembreteComponent;
+  let fixture: ComponentFixture<EditarLembreteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaLembreteComponent ]
+      declarations: [ EditarLembreteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListaLembreteComponent);
+    fixture = TestBed.createComponent(EditarLembreteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

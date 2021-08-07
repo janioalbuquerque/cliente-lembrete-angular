@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { Lembrete } from 'src/app/interfaces/lembrete';
-import { LembreteService } from 'src/app/services/lembrete.service';
-import { ErrorMsgComponent } from 'src/app/compartilhado/erro-msg/erro-msg.component';
+import { Lembrete } from '../../interfaces/lembrete';
+import { LembreteService } from '../../services/lembrete.service';
+import { ErrorMsgComponent } from '../../compartilhado/error-msg/error-msg.component';
 
 @Component({
   selector: 'app-lista-lembrete',
@@ -10,29 +9,27 @@ import { ErrorMsgComponent } from 'src/app/compartilhado/erro-msg/erro-msg.compo
   styleUrls: ['./lista-lembrete.component.css']
 })
 export class ListaLembreteComponent implements OnInit {
-  public lembretes: Lembrete[] = [];
-  @ViewChild(ErrorMsgComponent)
-  errorMsgComponent!: ErrorMsgComponent;
+  public lembretes: Lembrete[];
+  @ViewChild(ErrorMsgComponent) errorMsgComponent: ErrorMsgComponent;
+
   constructor(private lembreteService: LembreteService) { }
 
-  ngOnInit(): void {
-    this.getListaLembretes()
+  ngOnInit() {
+    this.getListaLembretes();
   }
 
-  getListaLembretes(){
-    this.lembreteService.getListaLembrete()
-    .subscribe((lembretes: Lembrete[]) => {
-      this.lembretes = lembretes;
-    }, () => { this.errorMsgComponent.setError("Falha ao Buscar Lembretes."); });
-
+  getListaLembretes() {
+    this.lembreteService.getListaLembretes()
+      .subscribe((lembretes: Lembrete[]) => {
+        this.lembretes = lembretes;
+      }, () => { this.errorMsgComponent.setError('Falha ao buscar lembretes.'); });
   }
 
-  deletaLembrete(id: number){
+  deletaLembrete(id: number) {
     this.lembreteService.deletaLembrete(id)
-    .subscribe(() => {
-      this.getListaLembretes();
-    }, () => { this.errorMsgComponent.setError("Falha ao Deletar Lembrete."); });
-
+      .subscribe(() => {
+        this.getListaLembretes();
+      }, () => { this.errorMsgComponent.setError('Falha ao deletar lembrete.'); });
   }
 
   existemLembretes(): boolean {
