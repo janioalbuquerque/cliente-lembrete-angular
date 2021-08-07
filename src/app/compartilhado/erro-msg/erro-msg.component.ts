@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-erro-msg',
+  selector: 'app-error-msg',
   templateUrl: './erro-msg.component.html',
   styleUrls: ['./erro-msg.component.css']
 })
