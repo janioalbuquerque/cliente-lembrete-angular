@@ -2,23 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorMsgComponent } from './compartilhado/erro-msg/erro-msg.component';
 import { ListaLembreteComponent } from './paginas/lista-lembrete/lista-lembrete.component';
-import { FormsModule } from '@angular/forms';
+import { FormLembreteComponent } from './compartilhado/form-lembrete/form-lembrete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorMsgComponent,
-    ListaLembreteComponent
+    ListaLembreteComponent,
+    FormLembreteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [HttpClient, ErrorMsgComponent, ListaLembreteComponent, BrowserModule, FormsModule, HttpClientModule],
